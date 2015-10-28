@@ -1,7 +1,5 @@
 import numpy as np
 
-word = input("Enter word: ")
-
 
 def makeMatrix():
     cols = input("Enter colums: ")
@@ -60,8 +58,7 @@ def diagonalSearch(table, word):
     return counter
 
 
-def sumAllWords():
-    table = makeMatrix()
+def sumAllWords(table, word):
     res = rowSearch(table, word) + colSearch(table, word) + \
         diagonalSearch(table, word)
     return res
@@ -69,7 +66,10 @@ def sumAllWords():
 
 def main():
 
-    if __name__ == '__main__':
-        main()
+    word = input("Enter word: ")
+    table = makeMatrix()
+    print("There are {0} {1} in your matrix".format(
+        sumAllWords(table, word), word))
 
-print("There are {0} {1} in your matrix".format(sumAllWords(), word))
+if __name__ == '__main__':
+    main()
